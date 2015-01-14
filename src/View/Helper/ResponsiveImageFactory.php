@@ -2,19 +2,30 @@
 
 namespace Midnight\ImageModule\View\Helper;
 
-use Midnight\Image\Plugin\PluginManager;
+use Midnight\Image\View\Helper\ResponsiveImage;
+use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\View\HelperPluginManager;
 
-class ResponsiveImageFactory extends \Midnight\Image\View\Helper\ResponsiveImageFactory
+class ResponsiveImageFactory implements FactoryInterface
 {
+    /**
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return ResponsiveImage
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        return new ResponsiveImage($this->getDestination($serviceLocator), $this->getPublicDir($serviceLocator));
+    }
+
     /**
      * @param ServiceLocatorInterface $serviceLocator
      * @return array
      */
     private function getConfig(ServiceLocatorInterface $serviceLocator)
     {
-        if (!$serviceLocator instanceof PluginManager) {
-            throw new \LogicException;
+        if (!$serviceLocator instanceof HelperPluginManager) {
+            throw new \LogicException(sprintf('Expected instance of %s.', HelperPluginManager::class));
         }
         $config = $serviceLocator->getServiceLocator()->get('Config');
         return $config['image']['responsive'];
@@ -37,5 +48,4 @@ class ResponsiveImageFactory extends \Midnight\Image\View\Helper\ResponsiveImage
     {
         return $this->getConfig($serviceLocator)['publicDir'];
     }
-
 }

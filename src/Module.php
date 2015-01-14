@@ -4,6 +4,7 @@ namespace Midnight\ImageModule;
 
 use Midnight\Image\Plugin\PluginManager;
 use Midnight\ImageModule\View\Helper\ImageFactory as ImageHelperFactory;
+use Midnight\ImageModule\View\Helper\ResponsiveImageFactory;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
@@ -41,6 +42,7 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface, ViewH
         return [
             'factories' => [
                 'image' => ImageHelperFactory::class,
+                'responsiveImage' => ResponsiveImageFactory::class,
             ],
         ];
     }
