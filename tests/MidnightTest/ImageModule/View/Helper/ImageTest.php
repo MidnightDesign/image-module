@@ -2,7 +2,6 @@
 
 namespace MidnightTest\ImageModule\View\Helper;
 
-use Midnight\Image\ImageInterface;
 use Midnight\ImageModule\ImageFactory;
 use Midnight\ImageModule\View\Helper\Image;
 
@@ -21,7 +20,7 @@ class ImageTest extends \PHPUnit_Framework_TestCase
     public function testInvoke()
     {
         $imageHelper = $this->imageHelper;
-        $imageHelper('assets/test.jpg');
+        $imageHelper('tests/assets/test.jpg');
     }
 
     /**

@@ -14,6 +14,9 @@
         "zendframework/zend-modulemanager": "~2.3",
         "zendframework/zend-view": "~2.3"
     },
+    "require-dev": {
+        "satooshi/php-coveralls": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "Midnight\\ImageModule\\": "src"

@@ -25,6 +25,6 @@ class ImageFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreate()
     {
-        $this->assertInstanceOf(ImageInterface::class, $this->factory->create('assets/test.jpg'));
+        $this->assertInstanceOf(ImageInterface::class, $this->factory->create('tests/assets/test.jpg'));
     }
 }
