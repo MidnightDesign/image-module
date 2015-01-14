@@ -1,0 +1,21 @@
+{
+    "name": "midnight/image-module",
+    "description": "Glue package between midnight/image and zendframework/zf2",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rudolph Gottesheim",
+            "email": "r.gottesheim@loot.at"
+        }
+    ],
+    "require": {
+        "php": "~5.5",
+        "midnight/image": "~1.0@dev",
+        "zendframework/zend-modulemanager": "~2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Midnight\\ImageModule\\": "src"
+        }
+    }
+}
