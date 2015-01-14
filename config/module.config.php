@@ -2,21 +2,18 @@
 
 namespace Midnight\ImageModule;
 
-use Midnight\Image\Plugin\PluginManager;
-use Midnight\ImageModule\View\Helper\ImageFactory as ImageHelperFactory;
+use Midnight\ImageModule\View\Helper\ResponsiveImageFactory;
 
 return [
-    'service_manager' => [
-        'factories' => [
-            ImageFactory::class => ImageFactoryFactory::class,
-            PluginManager::class => PluginManagerFactory::class,
-        ],
-    ],
-    'view_helpers' => [
-        'factories' => [
-            'image' => ImageHelperFactory::class,
-        ],
-    ],
     'image_plugins' => [
+        'factories' => [
+            'responsiveImage' => ResponsiveImageFactory::class,
+        ],
     ],
+    'image' => [
+        'responsive' => [
+            'dir' => 'public/images/responsive',
+            'publicDir' => 'public'
+        ]
+    ]
 ];
