@@ -2,7 +2,6 @@
 
 namespace Midnight\ImageModule\View\Helper;
 
-use Midnight\Image\View\Helper\ResponsiveImage;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\View\HelperPluginManager;
